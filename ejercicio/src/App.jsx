@@ -17,11 +17,17 @@ const App = () => {
     e.preventDefault()
     console.log("añadido", e.target)
     const namePerson = {
-      name: newName 
+      name: newName
     }
-    setPersons(persons.concat(namePerson))
-
+    if (persons.some(p => p.name === newName)) {
+      alert(`${newName} is already in the list`)
+    }
+    else {
+      setPersons(persons.concat(namePerson))
+      setNewName('')
   }
+    }
+    
 
   return (
     <div>
